@@ -1,0 +1,7 @@
+# node-modules folder will be ignored
+node_modules/
+
+public/bundle.js
+public/bundle.js.map
+
+/React\ Notes

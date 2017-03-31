@@ -28,6 +28,8 @@ import router from 'app/router';
 firebase.auth().onAuthStateChanged((user) => {
   if(user) {
     store.dispatch(actions.login(user.uid));
+    //async action that fetches data from firebase during first time
+    store.dispatch(actions.startAddTodos());
     hashHistory.push('/todos');//redirects to todos page
   } else {
     store.dispatch(actions.logout());
@@ -35,8 +37,7 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
-//async action that fetches data from firebase during first time
-store.dispatch(actions.startAddTodos());
+
 //Load foundation library
 //require('style!css!foundation-sites/dist/foundation.min.css')//to style these html we need embed the chain with style loader
 //firup foundation

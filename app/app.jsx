@@ -27,8 +27,10 @@ import router from 'app/router';
 //like during login and Logout
 firebase.auth().onAuthStateChanged((user) => {
   if(user) {
+    store.dispatch(actions.login(user.uid));
     hashHistory.push('/todos');//redirects to todos page
   } else {
+    store.dispatch(actions.logout());
     hashHistory.push('/');//brings to Login page
   }
 });
